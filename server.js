@@ -24,7 +24,8 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.post("/create-payment-refund", async (req) => {
+app.post("/create-payment-refund", async (req, res) => {
+  res.send('made it here')
   const { id } = req.body;
 
   const refund = await stripe.refunds.create({
