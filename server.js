@@ -24,9 +24,11 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.post("/create-payment-refund", async () => {
+app.post("/create-payment-refund", async (req) => {
+  const { id } = req.body;
+
   const refund = await stripe.refunds.create({
-	payment_intent: 'pi_1Ii4deIcNwtJp8IXvzYFHeXh',
+	payment_intent: id,
   });
 });
 
